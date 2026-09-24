@@ -1,6 +1,6 @@
 // Service worker : l'appli fonctionne hors ligne (sauf l'IA et les prévisions de surf).
 // Change VERSION à chaque mise à jour pour forcer le rafraîchissement.
-const VERSION = 'matteo-v1';
+const VERSION = 'matteo-v2';
 const SHELL = [
   './',
   "./css/style.css",
