@@ -20,7 +20,7 @@ const TABS = ['accueil', 'calendrier', 'rounds', 'surf'];
 
 // ---------- Thème ----------
 function applyTheme() {
-  const t = store.get('theme', 'dark');
+  const t = store.get('theme', 'light');
   const mode = t === 'auto' ? (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : t;
   document.documentElement.dataset.theme = mode;
   document.querySelector('meta[name="theme-color"]').content = mode === 'light' ? '#f4f7ff' : '#07122a';

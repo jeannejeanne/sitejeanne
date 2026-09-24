@@ -30,7 +30,7 @@ function render(el) {
         <div class="card stack">
           <h2>🎨 Apparence & profil</h2>
           <label class="field">Prénom<input class="input" data-name value="${esc(store.get('name', 'Matteo'))}"></label>
-          <div><div class="small" style="color:var(--text-2);font-weight:500;margin-bottom:6px">Thème</div><div class="seg" data-themes><button data-v="dark">Sombre</button><button data-v="light">Clair</button><button data-v="auto">Auto</button></div></div>
+          <div><div class="small" style="color:var(--text-2);font-weight:500;margin-bottom:6px">Thème</div><div class="seg" data-themes><button data-v="light">Clair</button><button data-v="dark">Sombre</button><button data-v="auto">Auto</button></div></div>
         </div>
         <div class="card stack">
           <h2>📱 Installer sur le téléphone</h2>
@@ -66,7 +66,7 @@ function render(el) {
     catch (e) { res.innerHTML = `<span style="color:var(--red)">✗ ${esc(e.status === 401 ? 'Clé invalide' : e.message)}</span>`; }
   };
   $('[data-name]', el).onchange = e => { store.set('name', e.target.value.trim() || 'Matteo'); toast('Prénom enregistré'); };
-  const syncTheme = () => $$('[data-themes] button', el).forEach(b => b.classList.toggle('on', b.dataset.v === store.get('theme', 'dark')));
+  const syncTheme = () => $$('[data-themes] button', el).forEach(b => b.classList.toggle('on', b.dataset.v === store.get('theme', 'light')));
   $$('[data-themes] button', el).forEach(b => b.onclick = () => { store.set('theme', b.dataset.v); window.dispatchEvent(new Event('mt:theme')); syncTheme(); });
   syncTheme();
 
