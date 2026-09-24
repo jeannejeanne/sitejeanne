@@ -1,22 +1,19 @@
 /*
-  Ce fichier (CSS) gère l'APPARENCE du site.
-  Astuce : change les couleurs ci-dessous pour personnaliser tout le site d'un coup !
+  L'apparence du site.
+  Toutes les couleurs sont ici : change-les pour modifier tout le site d'un coup.
 */
 :root {
-  --fond: #fdf6f0;
-  --texte: #2d2a32;
-  --principale: #e05a8a;
+  --fond: #fff5f8;
   --carte: #ffffff;
-  --ombre: rgba(0, 0, 0, 0.08);
-}
-
-/* Le mode sombre (activé avec le bouton 🌙) */
-body.sombre {
-  --fond: #1c1a22;
-  --texte: #f1eef5;
-  --principale: #ff85b0;
-  --carte: #2a2733;
-  --ombre: rgba(0, 0, 0, 0.4);
+  --texte: #4a2b3a;
+  --doux: #8c6677;
+  --rose: #e8578f;
+  --rose-fonce: #c63d74;
+  --rose-clair: #ffe0ec;
+  --bordure: #f6cfdd;
+  --vert: #3a9d6e;
+  --ombre: 0 6px 20px rgba(232, 87, 143, 0.12);
+  --arrondi: 18px;
 }
 
 * {
@@ -25,181 +22,314 @@ body.sombre {
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   background: var(--fond);
   color: var(--texte);
-  line-height: 1.6;
-  transition: background 0.3s, color 0.3s;
+  line-height: 1.55;
 }
 
-/* ----- Menu ----- */
+h1, h2, h3 {
+  color: var(--rose-fonce);
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); }
+h2 { font-size: clamp(1.4rem, 4vw, 1.9rem); margin-bottom: 0.5rem; }
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.6rem; }
+.carte h3:first-child { margin-top: 0; }
+
+a { color: var(--rose-fonce); }
+
+/* ---------- En-tête et onglets ---------- */
 header {
   position: sticky;
   top: 0;
-  background: var(--fond);
-  box-shadow: 0 2px 8px var(--ombre);
   z-index: 10;
+  background: linear-gradient(135deg, #ffd1e3, #ffe9f1);
+  box-shadow: var(--ombre);
 }
 
-nav {
-  max-width: 900px;
+.haut {
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.8rem 16px 0.4rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 1.4rem;
-  color: var(--principale);
-  text-decoration: none;
-  margin-right: auto;
-}
-
-nav ul {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-}
-
-nav ul a {
-  color: var(--texte);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--rose-fonce);
   text-decoration: none;
 }
+.logo span { color: var(--rose); }
 
-nav ul a:hover {
-  color: var(--principale);
-}
+.profil { display: flex; align-items: center; margin: 0; white-space: nowrap; font-size: 0.9rem; color: var(--doux); }
+.profil select { width: auto; margin-left: 0.3rem; }
 
-/* ----- Sections ----- */
-section {
-  max-width: 900px;
+nav {
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 4rem 1rem;
+  padding: 0.3rem 16px 0.6rem;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
-h2 {
-  margin-bottom: 1.5rem;
-  color: var(--principale);
+nav a {
+  flex-shrink: 0;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--texte);
+  font-size: 0.95rem;
+  white-space: nowrap;
 }
 
-.accueil {
-  text-align: center;
-  padding: 6rem 1rem;
+nav a:hover { background: rgba(255, 255, 255, 0.6); }
+nav a.actif { background: var(--rose); color: white; }
+
+/* ---------- Rubriques : une seule visible à la fois ---------- */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 16px 3rem;
 }
 
-.accueil h1 {
-  font-size: clamp(2rem, 6vw, 3.5rem);
+.rubrique { display: none; }
+.rubrique.visible { display: block; animation: apparition 0.3s ease; }
+
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.intro { color: var(--doux); margin-bottom: 1.2rem; }
+
+/* ---------- Cartes ---------- */
+.carte {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: var(--arrondi);
+  padding: 1.2rem;
+  box-shadow: var(--ombre);
   margin-bottom: 1rem;
 }
 
-.surligne {
-  color: var(--principale);
-}
+.carte.petite { margin-top: 2rem; font-size: 0.95rem; }
+.carte.petite p { color: var(--doux); margin-bottom: 0.8rem; }
 
-#message {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  min-height: 2rem;
-}
-
-/* ----- Boutons ----- */
-button {
-  background: var(--principale);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 999px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: transform 0.2s;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-#bouton-theme {
-  margin: 0;
-  padding: 0.4rem 0.7rem;
-  background: transparent;
-  font-size: 1.2rem;
-}
-
-/* ----- Cartes des passions ----- */
 .cartes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.cartes.deux { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.cartes .carte { margin-bottom: 0; }
+
+.grille-accueil {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin: 1.5rem 0;
 }
 
-.carte {
-  background: var(--carte);
-  padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px var(--ombre);
-  transition: transform 0.2s;
-}
-
-.carte:hover {
-  transform: translateY(-6px);
-}
-
-.emoji {
-  font-size: 2.5rem;
-}
-
-/* ----- Formulaire ----- */
-form {
+.tuile {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-}
-
-input,
-textarea {
-  padding: 0.8rem;
-  border: 2px solid var(--ombre);
-  border-radius: 10px;
-  font: inherit;
+  gap: 0.3rem;
+  padding: 1rem;
   background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: var(--arrondi);
+  text-decoration: none;
   color: var(--texte);
+  font-weight: 600;
+  box-shadow: var(--ombre);
+  transition: transform 0.15s;
+}
+.tuile:hover { transform: translateY(-3px); }
+.tuile span { font-size: 1.8rem; }
+.tuile strong { color: var(--rose); }
+
+/* ---------- Formulaires ---------- */
+input, select, textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1.5px solid var(--bordure);
+  border-radius: 12px;
+  font: inherit;
+  color: var(--texte);
+  background: #fffafc;
 }
 
-input:focus,
-textarea:focus {
+input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: var(--principale);
+  border-color: var(--rose);
 }
 
-form button {
-  align-self: flex-start;
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--doux);
+  margin-bottom: 0.7rem;
+}
+label input, label select { margin-top: 0.25rem; }
+
+textarea { resize: vertical; margin-bottom: 0.7rem; }
+
+.ligne {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: flex-end;
+}
+.ligne > input, .ligne > label { flex: 1 1 160px; margin-bottom: 0; }
+.ligne > label.bouton { flex: 0 0 auto; color: var(--rose-fonce); font-size: 1rem; }
+.filtres { margin-bottom: 1rem; }
+
+button, .bouton {
+  display: inline-block;
+  background: var(--rose);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+button:hover, .bouton:hover { background: var(--rose-fonce); }
+button:active { transform: scale(0.97); }
+
+.secondaire, .bouton.secondaire {
+  background: var(--rose-clair);
+  color: var(--rose-fonce);
+}
+.secondaire:hover, .bouton.secondaire:hover { background: #ffd0e2; }
+
+.mini {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.85rem;
+  background: transparent;
+  color: var(--doux);
+}
+.mini:hover { background: var(--rose-clair); }
+
+/* ---------- Pastilles (filtres, liens, mots-clés) ---------- */
+.pastilles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
 }
 
-#merci {
-  margin-top: 1rem;
-  color: var(--principale);
+.pastille {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: var(--rose-clair);
+  color: var(--rose-fonce);
+  font-size: 0.85rem;
+  border: none;
+  font-weight: 500;
+  text-decoration: none;
+}
+button.pastille:hover { background: #ffd0e2; }
+.pastille.actif { background: var(--rose); color: white; }
+.liens .pastille { padding: 0.5rem 1rem; font-size: 0.95rem; }
+
+/* ---------- Tableaux ---------- */
+.tableau-conteneur {
+  overflow-x: auto;
+  background: var(--carte);
+  border-radius: var(--arrondi);
+  border: 1px solid var(--bordure);
+  box-shadow: var(--ombre);
 }
 
-/* ----- Pied de page ----- */
-footer {
+table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+th, td { padding: 0.6rem 0.7rem; text-align: left; border-bottom: 1px solid var(--rose-clair); }
+th { background: var(--rose-clair); color: var(--rose-fonce); white-space: nowrap; }
+td input { padding: 0.35rem 0.5rem; min-width: 80px; }
+td .pastille { margin-right: 0.3rem; white-space: nowrap; }
+#liste-weekends td:nth-child(-n+2), #liste-weekends td:nth-child(3) { white-space: nowrap; }
+tr.moins-cher { background: #fff0f6; }
+tr.moins-cher td:first-child::before { content: "👑 "; }
+
+.meilleur { background: linear-gradient(135deg, var(--rose), #f58db5); color: white; border: none; }
+.meilleur h3 { color: white; }
+
+/* ---------- Épargne ---------- */
+.compteur { text-align: center; }
+.gros-chiffre { font-size: 2.8rem; font-weight: 800; color: var(--rose); }
+.barre { height: 16px; background: var(--rose-clair); border-radius: 999px; overflow: hidden; margin: 0.8rem 0; }
+.barre div { height: 100%; width: 0; background: linear-gradient(90deg, #f58db5, var(--rose)); transition: width 0.5s; }
+#texte-mois { color: var(--doux); font-size: 0.9rem; margin-top: 0.4rem; }
+
+.alerte {
+  background: #fff0f0;
+  border: 1.5px dashed var(--rose);
+  border-radius: var(--arrondi);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.alerte.bravo { background: #eefaf3; border-color: var(--vert); color: var(--vert); }
+
+/* ---------- Listes ---------- */
+.liste { list-style: none; }
+.liste li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.2rem;
+  border-bottom: 1px solid var(--rose-clair);
+}
+.liste .montant { font-weight: 700; color: var(--vert); white-space: nowrap; }
+.liste .date { color: var(--doux); font-size: 0.85rem; }
+.cases li { justify-content: flex-start; }
+.cases input { width: auto; accent-color: var(--rose); }
+.cases .fait { text-decoration: line-through; color: var(--doux); }
+.cases .mini { margin-left: auto; }
+
+/* ---------- Citations ---------- */
+blockquote {
+  font-size: 1.25rem;
+  font-style: italic;
   text-align: center;
-  padding: 2rem;
-  opacity: 0.7;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background: var(--rose-clair);
+  border-radius: var(--arrondi);
+  color: var(--rose-fonce);
 }
+blockquote small { display: block; margin-top: 0.5rem; font-size: 0.85rem; font-style: normal; color: var(--doux); }
+#nouvelle-citation { display: block; margin: 0 auto 1.5rem; }
 
-/* ----- Sur téléphone ----- */
+/* ---------- Recettes et bons plans ---------- */
+.carte .emoji { font-size: 2.2rem; }
+.carte .infos { color: var(--doux); font-size: 0.85rem; margin: 0.3rem 0 0.6rem; }
+.carte details { margin-top: 0.6rem; }
+.carte summary { cursor: pointer; color: var(--rose-fonce); font-weight: 600; }
+.carte details ul, .carte details ol { padding-left: 1.2rem; margin: 0.5rem 0; font-size: 0.93rem; }
+.carte .entete { display: flex; justify-content: space-between; align-items: flex-start; }
+
+/* ---------- Fiches de cours ---------- */
+.fiche p { white-space: pre-wrap; font-size: 0.93rem; }
+
+footer { text-align: center; padding: 2rem 16px; color: var(--doux); font-size: 0.9rem; }
+
+/* ---------- Téléphone ---------- */
 @media (max-width: 600px) {
-  nav ul {
-    display: none;
-  }
+  .profil { font-size: 0.8rem; }
+  .logo { font-size: 1.1rem; }
+  .gros-chiffre { font-size: 2.2rem; }
 }

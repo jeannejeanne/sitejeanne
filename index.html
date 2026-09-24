@@ -1,88 +1,257 @@
 <!DOCTYPE html>
 <!--
-  Bienvenue dans ton premier site !
-  Ce fichier (HTML) décrit le CONTENU de la page : titres, textes, boutons...
-  Le style (couleurs, tailles) est dans style.css
-  Les actions (ce qui se passe quand on clique) sont dans script.js
+  Le site de Jeanne & Laetitia 💗
+  - index.html : le contenu de chaque rubrique
+  - style.css  : l'apparence (tout le rose est défini en haut du fichier)
+  - js/        : un fichier JavaScript par rubrique
 -->
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le site de Jeanne</title>
+  <title>Jeanne & Laetitia</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Le menu en haut de la page -->
   <header>
-    <nav>
-      <a href="#accueil" class="logo">Jeanne</a>
-      <ul>
-        <li><a href="#apropos">À propos</a></li>
-        <li><a href="#passions">Passions</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button id="bouton-theme" aria-label="Changer de thème">🌙</button>
+    <div class="haut">
+      <a href="#accueil" class="logo">Jeanne <span>&</span> Laetitia</a>
+      <label class="profil">
+        Je suis
+        <select id="choix-profil">
+          <option value="jeanne">Jeanne</option>
+          <option value="laetitia">Laetitia</option>
+        </select>
+      </label>
+    </div>
+    <nav id="onglets">
+      <a href="#accueil">🏠 Accueil</a>
+      <a href="#vols">✈️ Porto</a>
+      <a href="#recettes">🥗 Recettes</a>
+      <a href="#epargne">🐷 Épargne</a>
+      <a href="#motivation">✨ Motivation</a>
+      <a href="#marseille">☀️ Marseille</a>
+      <a href="#alternance">💼 Alternance</a>
+      <a href="#cours">📚 Cours</a>
     </nav>
   </header>
 
   <main>
-    <!-- Section d'accueil -->
-    <section id="accueil" class="accueil">
-      <h1>Salut, moi c'est <span class="surligne">Jeanne</span> 👋</h1>
-      <p>Bienvenue sur mon site ! J'apprends à coder et voici mon tout premier projet.</p>
-      <button id="bouton-coucou">Clique-moi !</button>
-      <p id="message"></p>
-    </section>
 
-    <!-- Section à propos -->
-    <section id="apropos">
-      <h2>À propos de moi</h2>
-      <p>
-        Écris ici quelques phrases sur toi : ce que tu aimes, ce que tu fais,
-        pourquoi tu as envie d'apprendre à coder...
-      </p>
-    </section>
+    <!-- ============ ACCUEIL ============ -->
+    <section data-rubrique="accueil" class="rubrique">
+      <h1>Coucou <span id="prenom">Jeanne</span> 💗</h1>
+      <p class="intro">Tout ce qu'il nous faut, au même endroit.</p>
+      <div class="grille-accueil">
+        <a href="#vols" class="tuile"><span>✈️</span>Vols Marseille → Porto</a>
+        <a href="#recettes" class="tuile"><span>🥗</span>Recettes saines</a>
+        <a href="#epargne" class="tuile"><span>🐷</span>Mon épargne<strong id="accueil-epargne"></strong></a>
+        <a href="#motivation" class="tuile"><span>✨</span>Motivation</a>
+        <a href="#marseille" class="tuile"><span>☀️</span>Bons plans Marseille</a>
+        <a href="#alternance" class="tuile"><span>💼</span>Alternance santé</a>
+        <a href="#cours" class="tuile"><span>📚</span>Fiches de cours</a>
+      </div>
+      <blockquote id="citation-accueil"></blockquote>
 
-    <!-- Section passions : chaque "carte" est un bloc -->
-    <section id="passions">
-      <h2>Mes passions</h2>
-      <div class="cartes">
-        <div class="carte">
-          <div class="emoji">💻</div>
-          <h3>Le code</h3>
-          <p>J'apprends le HTML, le CSS et le JavaScript.</p>
-        </div>
-        <div class="carte">
-          <div class="emoji">🎵</div>
-          <h3>La musique</h3>
-          <p>Remplace ce texte par une de tes passions.</p>
-        </div>
-        <div class="carte">
-          <div class="emoji">✈️</div>
-          <h3>Les voyages</h3>
-          <p>Et celle-ci aussi !</p>
+      <div class="carte petite">
+        <h3>💾 Sauvegarder / partager mes données</h3>
+        <p>Les données restent dans ce navigateur. Pour les passer à l'autre, ou d'un téléphone à un ordi : exporte le fichier, puis importe-le de l'autre côté.</p>
+        <div class="ligne">
+          <button id="bouton-export">Exporter</button>
+          <label class="bouton secondaire">Importer<input type="file" id="fichier-import" accept=".json" hidden></label>
         </div>
       </div>
     </section>
 
-    <!-- Section contact -->
-    <section id="contact">
-      <h2>Me contacter</h2>
-      <form id="formulaire">
-        <input type="text" id="nom" placeholder="Ton prénom" required>
-        <textarea id="texte" placeholder="Ton message" rows="4" required></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
-      <p id="merci"></p>
+    <!-- ============ VOLS ============ -->
+    <section data-rubrique="vols" class="rubrique">
+      <h2>✈️ Marseille → Porto, aller-retour</h2>
+      <p class="intro">Les week-ends à venir : clique sur un comparateur pour voir les vrais prix et horaires, puis note ce que tu trouves. Le moins cher est mis en avant automatiquement.</p>
+
+      <div class="ligne filtres">
+        <label>Type de week-end
+          <select id="type-weekend">
+            <option value="ven-dim">Vendredi → Dimanche</option>
+            <option value="sam-dim">Samedi → Dimanche</option>
+            <option value="ven-lun">Vendredi → Lundi</option>
+            <option value="jeu-dim">Jeudi → Dimanche</option>
+          </select>
+        </label>
+        <label>Combien de week-ends
+          <select id="nb-weekends">
+            <option>8</option><option selected>12</option><option>20</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="meilleur-weekend" class="carte meilleur"></div>
+      <div class="tableau-conteneur">
+        <table>
+          <thead>
+            <tr><th>Aller</th><th>Retour</th><th>Comparer</th><th>Prix A/R (€)</th><th>Horaires / compagnie</th></tr>
+          </thead>
+          <tbody id="liste-weekends"></tbody>
+        </table>
+      </div>
     </section>
+
+    <!-- ============ RECETTES ============ -->
+    <section data-rubrique="recettes" class="rubrique">
+      <h2>🥗 Recettes saines</h2>
+      <div class="ligne filtres">
+        <input type="search" id="recherche-recette" placeholder="Chercher un ingrédient…">
+        <div id="filtres-recettes" class="pastilles"></div>
+      </div>
+      <div id="liste-recettes" class="cartes"></div>
+    </section>
+
+    <!-- ============ ÉPARGNE ============ -->
+    <section data-rubrique="epargne" class="rubrique">
+      <h2>🐷 Mon épargne</h2>
+      <div id="alerte-epargne" class="alerte" hidden></div>
+
+      <div class="cartes deux">
+        <div class="carte">
+          <h3>Mon objectif</h3>
+          <label>Pour quoi ? <input type="text" id="objectif-nom" placeholder="Voyage à Porto"></label>
+          <label>Montant visé (€) <input type="number" id="objectif-montant" min="0" step="10"></label>
+          <label>Je m'engage à mettre chaque mois (€) <input type="number" id="objectif-mensuel" min="0" step="5"></label>
+        </div>
+        <div class="carte compteur">
+          <p>J'ai mis de côté</p>
+          <p class="gros-chiffre" id="total-epargne">0 €</p>
+          <div class="barre"><div id="barre-epargne"></div></div>
+          <p id="texte-progression"></p>
+          <p id="texte-mois"></p>
+        </div>
+      </div>
+
+      <form id="form-versement" class="carte ligne">
+        <input type="number" id="versement-montant" placeholder="Montant €" min="0.01" step="0.01" required>
+        <input type="text" id="versement-note" placeholder="Note (ex : baby-sitting)">
+        <button type="submit">+ J'ajoute</button>
+      </form>
+
+      <h3>Historique</h3>
+      <ul id="historique-epargne" class="liste"></ul>
+    </section>
+
+    <!-- ============ MOTIVATION ============ -->
+    <section data-rubrique="motivation" class="rubrique">
+      <h2>✨ Motivation</h2>
+      <blockquote id="citation-du-jour"></blockquote>
+      <button id="nouvelle-citation" class="secondaire">Une autre ✨</button>
+
+      <div class="cartes deux">
+        <div class="carte">
+          <h3>Pourquoi je fais tout ça</h3>
+          <textarea id="mon-pourquoi" rows="5" placeholder="Écris ici ce qui te motive. Relis-le les jours difficiles 💗"></textarea>
+        </div>
+        <div class="carte">
+          <h3>Mes objectifs de la semaine</h3>
+          <form id="form-objectif" class="ligne">
+            <input type="text" id="nouvel-objectif" placeholder="Ex : 3 séances de sport" required>
+            <button type="submit">+</button>
+          </form>
+          <ul id="liste-objectifs" class="liste cases"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARSEILLE ============ -->
+    <section data-rubrique="marseille" class="rubrique">
+      <h2>☀️ Bons plans à Marseille</h2>
+      <div id="filtres-marseille" class="pastilles"></div>
+      <div id="liste-marseille" class="cartes"></div>
+
+      <form id="form-bonplan" class="carte ligne">
+        <input type="text" id="bonplan-nom" placeholder="Notre bon plan à nous" required>
+        <input type="text" id="bonplan-desc" placeholder="Pourquoi c'est bien">
+        <button type="submit">+ Ajouter</button>
+      </form>
+    </section>
+
+    <!-- ============ ALTERNANCE ============ -->
+    <section data-rubrique="alternance" class="rubrique">
+      <h2>💼 Alternance : ingénieur d'affaires / commercial santé</h2>
+      <p class="intro">Recherches toutes prêtes sur les sites d'offres. Choisis le poste et la ville, puis clique.</p>
+      <div class="ligne filtres">
+        <label>Poste
+          <select id="alt-poste"></select>
+        </label>
+        <label>Ville
+          <select id="alt-ville">
+            <option>Marseille</option><option>Aix-en-Provence</option><option>Lyon</option>
+            <option>Paris</option><option>Montpellier</option><option>France</option>
+          </select>
+        </label>
+      </div>
+      <div id="liens-alternance" class="pastilles liens"></div>
+
+      <h3>Mes candidatures</h3>
+      <form id="form-candidature" class="carte ligne">
+        <input type="text" id="cand-entreprise" placeholder="Entreprise" required>
+        <input type="text" id="cand-poste" placeholder="Poste">
+        <input type="url" id="cand-lien" placeholder="Lien de l'offre">
+        <button type="submit">+ Ajouter</button>
+      </form>
+      <div class="tableau-conteneur">
+        <table>
+          <thead><tr><th>Entreprise</th><th>Poste</th><th>Date</th><th>Statut</th><th></th></tr></thead>
+          <tbody id="liste-candidatures"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ COURS ============ -->
+    <section data-rubrique="cours" class="rubrique">
+      <h2>📚 Synthèse de mes cours</h2>
+      <p class="intro">Colle ton cours : le site garde les phrases les plus importantes et repère les mots-clés. Tu corriges, puis tu enregistres la fiche.</p>
+
+      <div class="carte">
+        <div class="ligne">
+          <input type="text" id="cours-matiere" placeholder="Matière (ex : Marketing)">
+          <input type="text" id="cours-titre" placeholder="Titre du chapitre">
+        </div>
+        <textarea id="cours-texte" rows="8" placeholder="Colle le texte de ton cours ici…"></textarea>
+        <div class="ligne">
+          <label>Longueur du résumé
+            <select id="cours-longueur">
+              <option value="0.2">Très court</option>
+              <option value="0.35" selected>Moyen</option>
+              <option value="0.5">Détaillé</option>
+            </select>
+          </label>
+          <button id="bouton-resumer">Résumer ✨</button>
+        </div>
+      </div>
+
+      <div id="zone-resume" class="carte" hidden>
+        <h3>Mots-clés</h3>
+        <div id="resume-mots" class="pastilles"></div>
+        <h3>Résumé (modifiable)</h3>
+        <textarea id="resume-texte" rows="8"></textarea>
+        <button id="bouton-enregistrer-fiche">Enregistrer la fiche</button>
+      </div>
+
+      <h3>Mes fiches</h3>
+      <div id="filtres-cours" class="pastilles"></div>
+      <div id="liste-fiches" class="cartes"></div>
+    </section>
+
   </main>
 
-  <footer>
-    <p>Fait avec ❤️ par Jeanne — <span id="annee"></span></p>
-  </footer>
+  <footer>Fait avec 💗 par Jeanne & Laetitia</footer>
 
-  <script src="script.js"></script>
+  <!-- Les scripts : app.js en premier car les autres s'en servent -->
+  <script src="js/app.js"></script>
+  <script src="js/vols.js"></script>
+  <script src="js/recettes.js"></script>
+  <script src="js/epargne.js"></script>
+  <script src="js/motivation.js"></script>
+  <script src="js/marseille.js"></script>
+  <script src="js/alternance.js"></script>
+  <script src="js/cours.js"></script>
 </body>
 </html>
