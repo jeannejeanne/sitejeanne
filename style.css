@@ -1,0 +1,205 @@
+/*
+  Ce fichier (CSS) gère l'APPARENCE du site.
+  Astuce : change les couleurs ci-dessous pour personnaliser tout le site d'un coup !
+*/
+:root {
+  --fond: #fdf6f0;
+  --texte: #2d2a32;
+  --principale: #e05a8a;
+  --carte: #ffffff;
+  --ombre: rgba(0, 0, 0, 0.08);
+}
+
+/* Le mode sombre (activé avec le bouton 🌙) */
+body.sombre {
+  --fond: #1c1a22;
+  --texte: #f1eef5;
+  --principale: #ff85b0;
+  --carte: #2a2733;
+  --ombre: rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ----- Menu ----- */
+header {
+  position: sticky;
+  top: 0;
+  background: var(--fond);
+  box-shadow: 0 2px 8px var(--ombre);
+  z-index: 10;
+}
+
+nav {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: var(--principale);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav ul a {
+  color: var(--texte);
+  text-decoration: none;
+}
+
+nav ul a:hover {
+  color: var(--principale);
+}
+
+/* ----- Sections ----- */
+section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: var(--principale);
+}
+
+.accueil {
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.accueil h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.surligne {
+  color: var(--principale);
+}
+
+#message {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  min-height: 2rem;
+}
+
+/* ----- Boutons ----- */
+button {
+  background: var(--principale);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#bouton-theme {
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  background: transparent;
+  font-size: 1.2rem;
+}
+
+/* ----- Cartes des passions ----- */
+.cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.carte {
+  background: var(--carte);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px var(--ombre);
+  transition: transform 0.2s;
+}
+
+.carte:hover {
+  transform: translateY(-6px);
+}
+
+.emoji {
+  font-size: 2.5rem;
+}
+
+/* ----- Formulaire ----- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+input,
+textarea {
+  padding: 0.8rem;
+  border: 2px solid var(--ombre);
+  border-radius: 10px;
+  font: inherit;
+  background: var(--carte);
+  color: var(--texte);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--principale);
+}
+
+form button {
+  align-self: flex-start;
+}
+
+#merci {
+  margin-top: 1rem;
+  color: var(--principale);
+}
+
+/* ----- Pied de page ----- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  opacity: 0.7;
+}
+
+/* ----- Sur téléphone ----- */
+@media (max-width: 600px) {
+  nav ul {
+    display: none;
+  }
+}

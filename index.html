@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+  Bienvenue dans ton premier site !
+  Ce fichier (HTML) décrit le CONTENU de la page : titres, textes, boutons...
+  Le style (couleurs, tailles) est dans style.css
+  Les actions (ce qui se passe quand on clique) sont dans script.js
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le site de Jeanne</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Le menu en haut de la page -->
+  <header>
+    <nav>
+      <a href="#accueil" class="logo">Jeanne</a>
+      <ul>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#passions">Passions</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="bouton-theme" aria-label="Changer de thème">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Section d'accueil -->
+    <section id="accueil" class="accueil">
+      <h1>Salut, moi c'est <span class="surligne">Jeanne</span> 👋</h1>
+      <p>Bienvenue sur mon site ! J'apprends à coder et voici mon tout premier projet.</p>
+      <button id="bouton-coucou">Clique-moi !</button>
+      <p id="message"></p>
+    </section>
+
+    <!-- Section à propos -->
+    <section id="apropos">
+      <h2>À propos de moi</h2>
+      <p>
+        Écris ici quelques phrases sur toi : ce que tu aimes, ce que tu fais,
+        pourquoi tu as envie d'apprendre à coder...
+      </p>
+    </section>
+
+    <!-- Section passions : chaque "carte" est un bloc -->
+    <section id="passions">
+      <h2>Mes passions</h2>
+      <div class="cartes">
+        <div class="carte">
+          <div class="emoji">💻</div>
+          <h3>Le code</h3>
+          <p>J'apprends le HTML, le CSS et le JavaScript.</p>
+        </div>
+        <div class="carte">
+          <div class="emoji">🎵</div>
+          <h3>La musique</h3>
+          <p>Remplace ce texte par une de tes passions.</p>
+        </div>
+        <div class="carte">
+          <div class="emoji">✈️</div>
+          <h3>Les voyages</h3>
+          <p>Et celle-ci aussi !</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section contact -->
+    <section id="contact">
+      <h2>Me contacter</h2>
+      <form id="formulaire">
+        <input type="text" id="nom" placeholder="Ton prénom" required>
+        <textarea id="texte" placeholder="Ton message" rows="4" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+      <p id="merci"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Fait avec ❤️ par Jeanne — <span id="annee"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
