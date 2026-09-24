@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Matteo · Base</title>
+  <meta name="description" content="L'appli perso de Matteo : IA, planning, surf à Matosinhos, rounds, combos, flashcards, journal, recettes et poids.">
+  <meta name="theme-color" content="#07122a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Matteo">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    try { const t = localStorage.getItem('mt.theme'); if (t) document.documentElement.dataset.theme = JSON.parse(t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Rubriques">
+      <a class="brand" href="#/accueil">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span class="brand-text">Matteo<small>Porto · Kiné · Fight · Surf</small></span>
+      </a>
+      <nav id="nav"></nav>
+      <div class="sidebar-foot">
+        <button class="install-btn" id="install-btn" hidden>Installer l'appli</button>
+        <a href="#/reglages" class="nav-link" data-view="reglages"></a>
+      </div>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn" id="menu-btn" aria-label="Ouvrir le menu"></button>
+        <span class="topbar-title" id="topbar-title">Accueil</span>
+        <a class="icon-btn" href="#/reglages" id="topbar-settings" aria-label="Réglages"></a>
+      </header>
+      <main id="views"></main>
+    </div>
+
+    <nav class="tabbar" id="tabbar" aria-label="Accès rapide"></nav>
+  </div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
