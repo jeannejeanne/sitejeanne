@@ -1,5 +1,7 @@
 # Jeanne & Laetitia 💗
 
+> 🆕 Le dossier [`matteo/`](matteo/) contient l'appli de Matteo (coach IA, planning, surf, rounds, combos, flashcards, journal, recettes, poids). Voir [matteo/README.md](matteo/README.md).
+
 Notre site à nous deux, en HTML, CSS et JavaScript (sans installation).
 
 ## Les rubriques
