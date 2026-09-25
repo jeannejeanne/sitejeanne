@@ -111,7 +111,7 @@ route();
     document.body.appendChild(c);
     setTimeout(() => c.remove(), 7000);
   }
-  toast(`Joyeux anniversaire ${firstName()} ! ${age()} ans 🎉`, 6000);
+  toast(`Joyeux anniversaire mon Chérichou ! ${age()} ans 🎉`, 6000);
 })();
 
 // ---------- PWA : service worker + bouton d'installation ----------

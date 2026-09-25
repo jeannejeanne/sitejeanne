@@ -2,7 +2,7 @@
 import { store, h, esc, md, $, $$, today, fmtDay, addDays, ymd, firstName, age, toast, go, round1 } from '../core.js';
 import { icon } from '../icons.js';
 import { chat, hasKey, systemPrompt, fileBlock } from '../ai.js';
-import { LOVE, JOKES, SIGNATURE } from '../data/coeur.js';
+import { LOVE, JOKES, SIGNATURE, NICKNAME } from '../data/coeur.js';
 
 let root, log, busy = false, controller = null, attachment = null, pending = null;
 // Conversation : en mémoire avec les pièces jointes, sauvegardée sans elles
@@ -30,9 +30,9 @@ function render(el) {
   const d = new Date();
   const isBday = d.getMonth() === 4 && d.getDate() === 7;
   el.innerHTML = `
-    ${isBday ? `<div class="card bday"><h2>🎂 Joyeux anniversaire ${esc(firstName())} !</h2><p style="margin:6px 0 0">${age()} ans aujourd'hui. Pas de sparring violent, profite ! 🎉</p></div>` : ''}
+    ${isBday ? `<div class="card bday"><h2>🎂 Joyeux anniversaire mon ${esc(NICKNAME)} !</h2><p style="margin:6px 0 0">${age()} ans aujourd'hui. Pas de sparring violent, profite ! 🎉</p></div>` : ''}
     <div class="hero">
-      <div><div class="eyebrow">${esc(fmtDay(today()))}</div><h1>${greeting()}, ${esc(firstName())} <span class="wave">👋</span></h1><p>Qu'est-ce qu'on fait aujourd'hui ?</p></div>
+      <div><div class="eyebrow">${esc(fmtDay(today()))}</div><h1>${greeting()}, ${esc(NICKNAME)} <span class="wave">👋</span></h1><p>Qu'est-ce qu'on fait aujourd'hui ?</p></div>
     </div>
     <div class="widgets" data-widgets></div>
     <div class="grid g2 mb">
@@ -202,7 +202,7 @@ function drawFun() {
   if (loveI == null) loveI = dayIndex(LOVE.length);
   if (jokeI == null) jokeI = dayIndex(JOKES.length, 17);
   const love = $('[data-love]', root);
-  love.innerHTML = `<div class="card-head"><h2><span class="beat">❤️</span> Petit mot pour toi</h2><button class="icon-btn sm" data-more-love aria-label="Un autre mot">${icon('refresh')}</button></div>
+  love.innerHTML = `<div class="card-head"><h2><span class="beat">❤️</span> Pour mon ${esc(NICKNAME)}</h2><button class="icon-btn sm" data-more-love aria-label="Un autre mot">${icon('refresh')}</button></div>
     <p class="love-txt">${esc(LOVE[loveI])}</p><div class="love-sign">— ${esc(SIGNATURE)}</div>`;
   $('[data-more-love]', love).onclick = () => { loveI = (loveI + 1) % LOVE.length; drawFun(); hearts(love); };
   love.onclick = e => { if (!e.target.closest('button')) hearts(love); };

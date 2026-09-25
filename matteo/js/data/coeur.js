@@ -1,6 +1,7 @@
 // Petits mots d'amour (un par jour) et blagues du jour.
 // Pour changer la signature ou ajouter des mots : modifie simplement ces listes.
-export const SIGNATURE = 'Ta chérie';
+export const SIGNATURE = 'Jeanne';
+export const NICKNAME = 'Chérichou';
 
 export const LOVE = [
   "Je t'aime. Voilà, c'est dit, tu peux commencer ta journée 💛",
@@ -9,7 +10,7 @@ export const LOVE = [
   "Même à des kilomètres, c'est toi que je choisis. Tous les jours.",
   "Petit rappel : tu es incroyable. Et je t'aime fort.",
   "Si tu as une journée difficile, pense que quelqu'un pense à toi. (Moi.)",
-  "Tu es mon champion, avec ou sans ceinture 🥊",
+  "Tu es mon champion, Chérichou, avec ou sans ceinture 🥊",
   "J'ai hâte de te serrer dans mes bras.",
   "Bois de l'eau, révise un peu, et n'oublie pas que je t'aime.",
   "Tu es la meilleure vague que j'ai jamais prise 🌊",
@@ -21,19 +22,19 @@ export const LOVE = [
   "Si tu lis ça, c'est que je t'aime. Ça marche tous les jours.",
   "Mon endroit préféré au monde : à côté de toi.",
   "Bon courage pour aujourd'hui. Tu vas tout déchirer, comme toujours.",
-  "Tu es ma personne. Voilà.",
+  "Tu es ma personne, mon Chérichou. Voilà.",
   "Je t'aime en français, en portugais (amo-te) et dans toutes les langues.",
   "Merci d'être toi. Ne change rien (sauf ta garde basse au sparring).",
   "J'ai de la chance, et je le sais. Cette chance, c'est toi.",
   "Tu fais battre mon cœur plus vite qu'un round de 3 minutes.",
   "Un jour de plus à t'aimer, un jour de moins avant de te revoir.",
   "Tu as le droit d'être fatigué, mais jamais le droit d'oublier que tu es aimé.",
-  "Tu es beau, tu es drôle, tu es à moi. Bonne journée 😘",
+  "Tu es beau, tu es drôle, tu es mon Chérichou. Bonne journée 😘",
   "Je crois en toi. Pour les exams, les combats et tout le reste.",
-  "Je t'envoie un câlin. Il arrive… maintenant 🤗",
+  "Je t'envoie un câlin, Chérichou. Il arrive… maintenant 🤗",
   "Mon cœur est en mode guerrier aussi : il se bat pour nous deux.",
   "Prends soin de toi. Tu tiens à moi, donc tu dois tenir bon.",
-  "Toi + moi = mon équipe préférée.",
+  "Chérichou + Jeanne = mon équipe préférée.",
 ];
 
 // [question, chute]

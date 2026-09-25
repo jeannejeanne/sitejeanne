@@ -6,7 +6,7 @@ L'appli perso de Matteo (kiné à Porto, muay thaï, MMA, surf). Un site en HTML
 
 | Rubrique | Ce qu'elle fait |
 |---|---|
-| ✨ Accueil & IA | Un petit mot d'amour et une blague différents chaque jour (modifiables dans `js/data/coeur.js`), le résumé du jour (prochain cours, note du surf, séances, cartes à réviser) et un coach IA à qui poser toutes les questions. Il connaît son planning, son poids et ses entraînements. On peut lui joindre un PDF ou une photo. |
+| ✨ Accueil & IA | Un petit mot d'amour de Jeanne pour son Chérichou et une blague différents chaque jour (modifiables dans `js/data/coeur.js`), le résumé du jour (prochain cours, note du surf, séances, cartes à réviser) et un coach IA à qui poser toutes les questions. Il connaît son planning, son poids et ses entraînements. On peut lui joindre un PDF ou une photo. |
 | 🗓️ Calendrier | Vue semaine, mois et agenda. Cours, stages, examens, muay thaï, MMA, muscu, surf… avec répétition chaque semaine. Import et export `.ics` (Google Agenda, emploi du temps de la fac). |
 | 🌊 Vagues à Matosinhos | Prévisions de houle, période, vent, marée et température de l'eau (Open-Meteo, gratuit). Une note sur 10 pour chaque jour, le meilleur créneau, le conseil de planche, et des liens vers Surf-Forecast, la webcam MEO et Windy. |
 | ⏱️ Minuteur de rounds | 3 min de combat / 1 min de repos par défaut, cloche de ring au début et à la fin, clap 10 s avant la fin, préréglages (muay thaï pro, MMA, HIIT…), voix, plein écran, écran toujours allumé. Peut annoncer des combos pendant les rounds. |
