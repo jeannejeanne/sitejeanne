@@ -8,6 +8,7 @@ export const VIEWS = [
   { id: 'surf', label: 'Vagues à Matosinhos', short: 'Surf', icon: 'wave', group: 'Surf' },
   { id: 'rounds', label: 'Minuteur de rounds', short: 'Rounds', icon: 'timer', group: 'Combat' },
   { id: 'combos', label: 'Combos shadow', short: 'Combos', icon: 'zap', group: 'Combat' },
+  { id: 'guerrier', label: 'Mode guerrier', short: 'Guerrier', icon: 'flame', group: 'Combat' },
   { id: 'journal', label: "Journal d'entraînement", short: 'Journal', icon: 'book', group: 'Combat' },
   { id: 'recup', label: 'Récup & mobilité', short: 'Récup', icon: 'heart', group: 'Combat' },
   { id: 'flashcards', label: 'Flashcards anatomie', short: 'Flashcards', icon: 'cards', group: 'Études' },
@@ -110,7 +111,7 @@ route();
     document.body.appendChild(c);
     setTimeout(() => c.remove(), 7000);
   }
-  toast(`Joyeux anniversaire ${firstName()} ! ${age()} ans 🎉`, 6000);
+  toast(`Joyeux anniversaire mon Chérichou ! ${age()} ans 🎉`, 6000);
 })();
 
 // ---------- PWA : service worker + bouton d'installation ----------

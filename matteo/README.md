@@ -6,11 +6,12 @@ L'appli perso de Matteo (kiné à Porto, muay thaï, MMA, surf). Un site en HTML
 
 | Rubrique | Ce qu'elle fait |
 |---|---|
-| ✨ Accueil & IA | Le résumé du jour (prochain cours, note du surf, séances, cartes à réviser) et un coach IA à qui poser toutes les questions. Il connaît son planning, son poids et ses entraînements. On peut lui joindre un PDF ou une photo. |
+| ✨ Accueil & IA | Un petit mot d'amour de Jeanne pour son Chérichou et une blague différents chaque jour (modifiables dans `js/data/coeur.js`), le résumé du jour (prochain cours, note du surf, séances, cartes à réviser) et un coach IA à qui poser toutes les questions. Il connaît son planning, son poids et ses entraînements. On peut lui joindre un PDF ou une photo. |
 | 🗓️ Calendrier | Vue semaine, mois et agenda. Cours, stages, examens, muay thaï, MMA, muscu, surf… avec répétition chaque semaine. Import et export `.ics` (Google Agenda, emploi du temps de la fac). |
 | 🌊 Vagues à Matosinhos | Prévisions de houle, période, vent, marée et température de l'eau (Open-Meteo, gratuit). Une note sur 10 pour chaque jour, le meilleur créneau, le conseil de planche, et des liens vers Surf-Forecast, la webcam MEO et Windy. |
 | ⏱️ Minuteur de rounds | 3 min de combat / 1 min de repos par défaut, cloche de ring au début et à la fin, clap 10 s avant la fin, préréglages (muay thaï pro, MMA, HIIT…), voix, plein écran, écran toujours allumé. Peut annoncer des combos pendant les rounds. |
 | ⚡ Combos shadow | Enchaînements annoncés à voix haute, en boxe anglaise, muay thaï ou MMA, sur 4 niveaux (débutant → pro), au choix en noms ou en numéros (1-2-3…). |
+| ⚔️ Mode guerrier | Un gros bouton qui lance une musique de motivation créée en direct par l'appli (tambours de guerre, hardstyle ou sarama muay thaï), avec des cris de motivation à la voix. Elle continue pendant le minuteur de rounds. Liens vers des playlists Spotify/YouTube et sa propre playlist. |
 | 📓 Journal d'entraînement | Séances, durée, intensité (RPE), forme, ce qui a été travaillé, ressentis et progrès. Charge par semaine et ratio aigu/chronique (risque de blessure). |
 | 🧘 Récup & mobilité | Check-in du jour (sommeil, courbatures, énergie, stress → feu vert/orange/rouge) et 5 routines d'étirements guidées à la voix. |
 | 🦴 Flashcards | On importe un cours (PDF, photo, texte) et l'IA en fait des flashcards. Révision espacée (les cartes difficiles reviennent plus souvent). Un paquet d'anatomie de base est inclus. |
