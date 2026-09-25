@@ -2,6 +2,7 @@
 import { store, h, esc, md, $, $$, today, fmtDay, addDays, ymd, firstName, age, toast, go, round1 } from '../core.js';
 import { icon } from '../icons.js';
 import { chat, hasKey, systemPrompt, fileBlock } from '../ai.js';
+import { LOVE, JOKES, SIGNATURE } from '../data/coeur.js';
 
 let root, log, busy = false, controller = null, attachment = null, pending = null;
 // Conversation : en mémoire avec les pièces jointes, sauvegardée sans elles
@@ -34,6 +35,10 @@ function render(el) {
       <div><div class="eyebrow">${esc(fmtDay(today()))}</div><h1>${greeting()}, ${esc(firstName())} <span class="wave">👋</span></h1><p>Qu'est-ce qu'on fait aujourd'hui ?</p></div>
     </div>
     <div class="widgets" data-widgets></div>
+    <div class="grid g2 mb">
+      <div class="card love" data-love></div>
+      <div class="card joke" data-joke></div>
+    </div>
     <div class="card chat">
       <div class="chat-head"><div class="orb"></div><div style="flex:1"><h2>Ton coach IA</h2><div class="tiny muted">Kiné, fight, nutrition, surf, vie à Porto : demande-lui tout.</div></div><button class="btn btn-sm btn-ghost" data-reset>${icon('refresh')}<span class="lbl">Nouvelle discussion</span></button></div>
       <div class="chat-log" data-log></div>
@@ -66,6 +71,7 @@ function render(el) {
   };
   $('[data-reset]', el).onclick = () => { controller?.abort(); convo = []; persist(); drawLog(); };
   drawLog();
+  drawFun();
   if (pending) { const p = pending; pending = null; send(p); }
 }
 
@@ -186,6 +192,41 @@ function history() {
 export function askAI(text) {
   if (root) { go('accueil'); setTimeout(() => send(text), 50); }
   else { pending = text; go('accueil'); }
+}
+
+// ---------- Petit mot & blague du jour ----------
+const dayIndex = (n, salt = 0) => { const d = new Date(); return (Math.floor(new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime() / 86400000) + salt) % n; };
+let loveI = null, jokeI = null;
+
+function drawFun() {
+  if (loveI == null) loveI = dayIndex(LOVE.length);
+  if (jokeI == null) jokeI = dayIndex(JOKES.length, 17);
+  const love = $('[data-love]', root);
+  love.innerHTML = `<div class="card-head"><h2><span class="beat">❤️</span> Petit mot pour toi</h2><button class="icon-btn sm" data-more-love aria-label="Un autre mot">${icon('refresh')}</button></div>
+    <p class="love-txt">${esc(LOVE[loveI])}</p><div class="love-sign">— ${esc(SIGNATURE)}</div>`;
+  $('[data-more-love]', love).onclick = () => { loveI = (loveI + 1) % LOVE.length; drawFun(); hearts(love); };
+  love.onclick = e => { if (!e.target.closest('button')) hearts(love); };
+  const [q, a] = JOKES[jokeI];
+  const joke = $('[data-joke]', root);
+  joke.innerHTML = `<div class="card-head"><h2>😂 Blague du jour</h2><button class="icon-btn sm" data-more-joke aria-label="Une autre blague">${icon('refresh')}</button></div>
+    <p class="joke-q">${esc(q)}</p>
+    <button class="btn btn-sm btn-primary" data-punch>Voir la chute 🥁</button>
+    <p class="joke-a" data-a hidden>${esc(a)}</p>`;
+  $('[data-punch]', joke).onclick = e => { e.target.hidden = true; $('[data-a]', joke).hidden = false; };
+  $('[data-more-joke]', joke).onclick = () => { jokeI = (jokeI + 1) % JOKES.length; drawFun(); };
+}
+
+// Petits cœurs qui s'envolent
+function hearts(card) {
+  for (let i = 0; i < 8; i++) {
+    const hEl = document.createElement('span');
+    hEl.className = 'fly-heart';
+    hEl.textContent = ['❤️', '💛', '💙'][i % 3];
+    hEl.style.left = 10 + Math.random() * 80 + '%';
+    hEl.style.animationDelay = Math.random() * 0.4 + 's';
+    card.appendChild(hEl);
+    setTimeout(() => hEl.remove(), 1800);
+  }
 }
 
 // ---------- Widgets ----------

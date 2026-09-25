@@ -1,6 +1,6 @@
 // Service worker : l'appli fonctionne hors ligne (sauf l'IA et les prévisions de surf).
 // Change VERSION à chaque mise à jour pour forcer le rafraîchissement.
-const VERSION = 'matteo-v2';
+const VERSION = 'matteo-v3';
 const SHELL = [
   './',
   "./css/style.css",
@@ -15,6 +15,7 @@ const SHELL = [
   "./js/chart.js",
   "./js/core.js",
   "./js/data/anatomie.js",
+  "./js/data/coeur.js",
   "./js/data/recettes.js",
   "./js/icons.js",
   "./js/main.js",
@@ -22,6 +23,7 @@ const SHELL = [
   "./js/views/calendrier.js",
   "./js/views/combos.js",
   "./js/views/flashcards.js",
+  "./js/views/guerrier.js",
   "./js/views/journal.js",
   "./js/views/poids.js",
   "./js/views/portugais.js",
